@@ -1,0 +1,249 @@
+[
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "docx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "docx",
+        "description": "docx",
+        "detail": "docx",
+        "documentation": {}
+    },
+    {
+        "label": "Document",
+        "importPath": "docx",
+        "description": "docx",
+        "isExtraImport": true,
+        "detail": "docx",
+        "documentation": {}
+    },
+    {
+        "label": "pdfplumber",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pdfplumber",
+        "description": "pdfplumber",
+        "detail": "pdfplumber",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.colors",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.colors",
+        "description": "matplotlib.colors",
+        "detail": "matplotlib.colors",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "importPath": "operator",
+        "description": "operator",
+        "isExtraImport": true,
+        "detail": "operator",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "plotly.express",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "plotly.express",
+        "description": "plotly.express",
+        "detail": "plotly.express",
+        "documentation": {}
+    },
+    {
+        "label": "plotly.graph_objects",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "plotly.graph_objects",
+        "description": "plotly.graph_objects",
+        "detail": "plotly.graph_objects",
+        "documentation": {}
+    },
+    {
+        "label": "string",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "string",
+        "description": "string",
+        "detail": "string",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "importPath": "PIL",
+        "description": "PIL",
+        "isExtraImport": true,
+        "detail": "PIL",
+        "documentation": {}
+    },
+    {
+        "label": "OpenAI",
+        "importPath": "openai",
+        "description": "openai",
+        "isExtraImport": true,
+        "detail": "openai",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "signup",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def signup(json_file_path=\"data.json\"):\n    st.title(\"Signup Page\")\n    with st.form(\"signup_form\"):\n        st.write(\"Fill in the details below to create an account:\")\n        name = st.text_input(\"Name:\")\n        email = st.text_input(\"Email:\")\n        age = st.number_input(\"Age:\", min_value=0, max_value=120)\n        sex = st.radio(\"Sex:\", (\"Male\", \"Female\", \"Other\"))\n        password = st.text_input(\"Password:\", type=\"password\")\n        confirm_password = st.text_input(\"Confirm Password:\", type=\"password\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "check_login",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def check_login(username, password, json_file_path=\"data.json\"):\n    try:\n        with open(json_file_path, \"r\") as json_file:\n            data = json.load(json_file)\n        for user in data[\"users\"]:\n            if user[\"email\"] == username and user[\"password\"] == password:\n                session_state[\"logged_in\"] = True\n                session_state[\"user_info\"] = user\n                st.success(\"Login successful!\")\n                return user",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "initialize_database",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def initialize_database(json_file_path=\"data.json\"):\n    try:\n        # Check if JSON file exists\n        if not os.path.exists(json_file_path):\n            # Create an empty JSON structure\n            data = {\"users\": []}\n            with open(json_file_path, \"w\") as json_file:\n                json.dump(data, json_file)\n    except Exception as e:\n        print(f\"Error initializing database: {e}\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "create_account",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def create_account(name, email, age, sex, password, json_file_path=\"data.json\"):\n    try:\n        # Check if the JSON file exists or is empty\n        if not os.path.exists(json_file_path) or os.stat(json_file_path).st_size == 0:\n            data = {\"users\": []}\n        else:\n            with open(json_file_path, \"r\") as json_file:\n                data = json.load(json_file)\n        # Append new user data to the JSON structure\n        user_info = {",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def login(json_file_path=\"data.json\"):\n    st.title(\"Login Page\")\n    username = st.text_input(\"Username:\")\n    password = st.text_input(\"Password:\", type=\"password\")\n    login_button = st.button(\"Login\")\n    if login_button:\n        user = check_login(username, password, json_file_path)\n        if user is not None:\n            session_state[\"logged_in\"] = True\n            session_state[\"user_info\"] = user",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_user_info",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_user_info(email, json_file_path=\"data.json\"):\n    try:\n        with open(json_file_path, \"r\") as json_file:\n            data = json.load(json_file)\n            for user in data[\"users\"]:\n                if user[\"email\"] == email:\n                    return user\n        return None\n    except Exception as e:\n        st.error(f\"Error getting user information: {e}\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "render_dashboard",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def render_dashboard(user_info, json_file_path=\"data.json\"):\n    try:\n        st.title(f\"Welcome to the Dashboard, {user_info['name']}!\")\n        st.subheader(\"User Information:\")\n        st.write(f\"Name: {user_info['name']}\")\n        st.write(f\"Sex: {user_info['sex']}\")\n        st.write(f\"Age: {user_info['age']}\")\n    except Exception as e:\n        st.error(f\"Error rendering dashboard: {e}\")\ndef extract_text(file) -> str:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "extract_text",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def extract_text(file) -> str:\n    if isinstance(file, str):\n        file_extension = os.path.splitext(file)[1].lower()\n    else:\n        file_extension = os.path.splitext(file.name)[1].lower()\n    if file_extension == \".pdf\":\n        if isinstance(file, str):\n            with pdfplumber.open(file) as pdf:\n                text = \"\\n\".join(\n                    page.extract_text() for page in pdf.pages if page.extract_text()",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "get_unit_test_cases",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def get_unit_test_cases(program, language):\n    try:\n        client = OpenAI(\n            api_key=os.environ.get(\"OPENAI_API_KEY\"),\n        )\n        prompt = f\"Given the following {language} program:\\n{program}\\nGenerate all possible unit test cases for this program. Make sure to cover all diverse scenarios. The test cases should be in the form of input and expected output.\"\n        messages = [{\"role\": \"system\", \"content\": prompt}]\n        response = client.chat.completions.create(\n            messages=messages,\n            model=\"gpt-3.5-turbo-0125\",",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def main(json_file_path=\"data.json\"):\n    st.sidebar.title(\"Unit Test Cases Generator\")\n    page = st.sidebar.radio(\n        \"Go to\",\n        (\"Signup/Login\", \"Dashboard\", \"Upload a program\", \"View Test Cases\"),\n        key=\"Unit Test Cases Generator\",\n    )\n    if page == \"Signup/Login\":\n        st.title(\"Signup/Login Page\")\n        login_or_signup = st.radio(",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "session_state",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "session_state = st.session_state\nif \"user_index\" not in st.session_state:\n    st.session_state[\"user_index\"] = 0\ndef signup(json_file_path=\"data.json\"):\n    st.title(\"Signup Page\")\n    with st.form(\"signup_form\"):\n        st.write(\"Fill in the details below to create an account:\")\n        name = st.text_input(\"Name:\")\n        email = st.text_input(\"Email:\")\n        age = st.number_input(\"Age:\", min_value=0, max_value=120)",
+        "detail": "app",
+        "documentation": {}
+    }
+]
