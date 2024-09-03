@@ -1,0 +1,20 @@
+function(nums, target) {
+let i;
+let newArray=[]
+for(i=0; i<nums.length; i++){
+newArray.push([i, nums[i]])
+}
+let n;
+let anotherArray=[];
+for(n=0; n<newArray.length; n++){
+newArray.forEach(array=>{
+if(array[0]!==newArray[n][0]){
+if (array[1]+newArray[n][1]===target){
+anotherArray.push(newArray[n][0])
+}
+}
+})
+}
+let sortedArray=anotherArray.sort((a, b)=>{return a-b})
+return sortedArray
+}

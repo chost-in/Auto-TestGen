@@ -1,0 +1,21 @@
+{
+    "users": [
+        {
+            "name": "Shreyansh",
+            "email": "Shreyansh@mail.com",
+            "age": 22,
+            "sex": "Male",
+            "password": "123",
+            "test_cases": [
+                "1. Input: 0\n   Expected Output: False (0 is not a prime number)\n\n2. Input: 1\n   Expected Output: False (1 is not a prime number)\n\n3. Input: 2\n   Expected Output: True (2 is a prime number)\n\n4. Input: 3\n   Expected Output: True (3 is a prime number)\n\n5. Input: 10\n   Expected Output: False (10 is not a prime number)\n\n6. Input: 17\n   Expected Output: True (17 is a prime number)\n\n7. Input: 20\n   Expected Output: False (20 is not a prime number)\n\n8. Input: -5\n   Expected Output: False (-5 is not a prime number)",
+                "1. Input: function([1, 2, 3], 4)\n   Expected Output: [0, 1]\n\n2. Input: function([3, 2, 1], 5)\n   Expected Output: [0, 2]\n\n3. Input: function([5, 10, 15], 20)\n   Expected Output: [0, 1]\n\n4. Input: function([4, 4, 4], 8)\n   Expected Output: [0, 1]\n\n5. Input: function([1, 2, 3, 4], 5)\n   Expected Output: [0, 1]\n\n6. Input: function([1], 1)\n   Expected Output: []\n\n7. Input: function([], 10)\n   Expected Output: []",
+                "1. Input: ([2, 7, 11, 15], 9)\n   Expected output: [0, 1]\n   \n2. Input: ([3, 2, 4], 6)\n   Expected output: [1, 2]\n   \n3. Input: ([3, 3], 6)\n   Expected output: [0, 1]\n   \n4. Input: ([0, 4, 3, 0], 0)\n   Expected output: [0, 3]\n   \n5. Input: ([-1, -2, -3, -4, -5], -8)\n   Expected output: [2, 4]"
+            ],
+            "program": [
+                "b'def is_prime(num):\\r\\n    \"\"\"\\r\\n    Check if a number is prime or not.\\r\\n\\r\\n    Parameters:\\r\\n    num (int): The number to be checked.\\r\\n\\r\\n    Returns:\\r\\n    bool: True if the number is prime, False otherwise.\\r\\n    \"\"\"\\r\\n    # define a flag variable\\r\\n    flag = False\\r\\n\\r\\n    if num == 1:\\r\\n        return False\\r\\n    elif num > 1:\\r\\n        # check for factors\\r\\n        for i in range(2, num):\\r\\n            if (num % i) == 0:\\r\\n                # if factor is found, set flag to True\\r\\n                flag = True\\r\\n                # break out of loop\\r\\n                break\\r\\n\\r\\n        # check if flag is True\\r\\n        if flag:\\r\\n            return False\\r\\n        else:\\r\\n            return True'",
+                "b'function(nums, target) {\\r\\nlet i;\\r\\nlet newArray=[]\\r\\nfor(i=0; i<nums.length; i++){\\r\\nnewArray.push([i, nums[i]])\\r\\n}\\r\\nlet n;\\r\\nlet anotherArray=[];\\r\\nfor(n=0; n<newArray.length; n++){\\r\\nnewArray.forEach(array=>{\\r\\nif(array[0]!==newArray[n][0]){\\r\\nif (array[1]+newArray[n][1]===target){\\r\\nanotherArray.push(newArray[n][0])\\r\\n}\\r\\n}\\r\\n})\\r\\n}\\r\\nlet sortedArray=anotherArray.sort((a, b)=>{return a-b})\\r\\nreturn sortedArray\\r\\n}'",
+                "b'function(nums, target) {\\r\\nlet i;\\r\\nlet newArray=[]\\r\\nfor(i=0; i<nums.length; i++){\\r\\nnewArray.push([i, nums[i]])\\r\\n}\\r\\nlet n;\\r\\nlet anotherArray=[];\\r\\nfor(n=0; n<newArray.length; n++){\\r\\nnewArray.forEach(array=>{\\r\\nif(array[0]!==newArray[n][0]){\\r\\nif (array[1]+newArray[n][1]===target){\\r\\nanotherArray.push(newArray[n][0])\\r\\n}\\r\\n}\\r\\n})\\r\\n}\\r\\nlet sortedArray=anotherArray.sort((a, b)=>{return a-b})\\r\\nreturn sortedArray\\r\\n}'"
+            ]
+        }
+    ]
+}
